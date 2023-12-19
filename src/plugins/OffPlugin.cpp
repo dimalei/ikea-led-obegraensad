@@ -13,5 +13,5 @@ void OffPlugin::loop() {
 }
 
 const char* OffPlugin::getName() const {
-    return "OffPlugin"; // name in GUI
+    return "Off"; // name in GUI
 }

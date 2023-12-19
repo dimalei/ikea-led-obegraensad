@@ -1,4 +1,5 @@
 #include "asyncwebserver.h"
+#include "api.h"
 
 #ifdef ENABLE_SERVER
 
@@ -13,6 +14,9 @@ void initWebServer()
   server.on("/", HTTP_GET, startGui);
   server.onNotFound([](AsyncWebServerRequest *request)
                     { request->send(404, "text/plain", "Page not found!"); });
+  
+  server.on("/api", HTTP_GET, handleCommand);
+
 
   server.begin();
 }
