@@ -36,6 +36,7 @@
 #include "screen.h"
 #include "secrets.h"
 #include "websocket.h"
+#include "api.h"
 
 unsigned long previousMillis = 0;
 unsigned long interval = 30000;

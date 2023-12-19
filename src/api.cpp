@@ -1,5 +1,7 @@
 #include "api.h"
 #include "PluginManager.h"
+#include "screen.h"
+//#include <ESPAsyncWebServer.h>
 
 void handleCommand(AsyncWebServerRequest *request)
 {
@@ -12,11 +14,18 @@ void handleCommand(AsyncWebServerRequest *request)
     int miny = request->arg("miny").toInt();
     int maxy = request->arg("maxy").toInt();
 
-    // http:/hostname.local/api/pluginid=0
-    if(request->hasParam("pluginid")){
-        int mode = request->getParam("pluginid").toInt();
+    // http://hostname.local/api?pluginid=0
+    if(request->hasArg("pluginid")){
+        int mode = request->arg("pluginid").toInt();
 
         pluginManager.setActivePluginById(mode);
+    }
+
+    // http://hostname.local/api?pluginid=0
+    if(request->hasArg("brightness")){
+        int brightness = request->arg("brightness").toInt();
+
+        Screen.setBrightness(brightness);
     }
 
 };
