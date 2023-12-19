@@ -1,11 +1,9 @@
 #include "plugins/OffPlugin.h"
-
-OffPlugin::OffPlugin() {
-    // Constructor logic, if needed
-}
+#include "screen.h"
 
 void OffPlugin::setup() {
     // Setup logic for your plugin
+    Screen.clear();
 }
 
 void OffPlugin::loop() {
@@ -13,5 +11,5 @@ void OffPlugin::loop() {
 }
 
 const char* OffPlugin::getName() const {
-    return "OffPlugin"; // name in GUI
+    return "Off"; // name in GUI
 }
