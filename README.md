@@ -32,13 +32,26 @@ Turn your OBEGRÄNSAD LED Wall Lamp into a live drawing canvas
   - Rain
   - Animation with the "Creator"
   - Firework
+  - Off
 
-# Control the board
+# Web GUI
 
 https://user-images.githubusercontent.com/15351728/202763445-3275e4e9-d976-4e35-b0cf-9550b8561b4c.mp4
 
 You can control the lamp with a supplied web GUI.
 You can get the IP via serial output or you can search it in your router settings.
+
+# HTTP GET
+
+You can control the lamp from your browsers address line or any automation tool with HTTP GET commands:
+- Change plugin by ID [0-??]:
+http://hostname.local/api?pluginid=0
+- Change plugin by name:
+http://hostname.local/api?plugin=Rain
+- Next Plugin:
+http://hostname.local/api?next
+- Set brighness [0-255]:
+http://hostname.local/api?brightness=0
 
 # How to
 
