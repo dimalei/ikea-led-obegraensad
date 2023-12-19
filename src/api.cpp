@@ -12,4 +12,11 @@ void handleCommand(AsyncWebServerRequest *request)
     int miny = request->arg("miny").toInt();
     int maxy = request->arg("maxy").toInt();
 
+    // http:/hostname.local/api/pluginid=0
+    if(request->hasParam("pluginid")){
+        int mode = request->getParam("pluginid").toInt();
+
+        pluginManager.setActivePluginById(mode);
+    }
+
 };
