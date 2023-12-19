@@ -1,11 +1,9 @@
 #include "plugins/OffPlugin.h"
 
-OffPlugin::OffPlugin() {
-    // Constructor logic, if needed
-}
 
 void OffPlugin::setup() {
     // Setup logic for your plugin
+    Screen.clear();
 }
 
 void OffPlugin::loop() {
