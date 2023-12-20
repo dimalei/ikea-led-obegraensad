@@ -1,4 +1,5 @@
 #include "plugins/WeatherPlugin.h"
+#include "api.h"
 
 // https://github.com/chubin/wttr.in/blob/master/share/translations/en.txt
 #ifdef ESP8266
@@ -16,6 +17,7 @@ void WeatherPlugin::setup()
     Screen.setPixel(8, 7, 1);
     Screen.setPixel(10, 7, 1);
     Screen.setPixel(11, 7, 1);
+    location = WEATHER_LOCATION;
     this->lastUpdate = millis();
     this->update();
     currentStatus = NONE;
@@ -33,7 +35,11 @@ void WeatherPlugin::loop()
 
 void WeatherPlugin::update()
 {
-    String weatherApiString = "https://wttr.in/" + String(WEATHER_LOCATION) + "?format=j2&lang=en";
+    if(!weatherLocation.isEmpty())
+    {
+        location = weatherLocation;
+    }
+    String weatherApiString = "https://wttr.in/" + location + "?format=j2&lang=en";
 #ifdef ESP32
     http.begin(weatherApiString);
 #endif

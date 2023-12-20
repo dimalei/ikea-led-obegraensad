@@ -11,7 +11,6 @@ class Screen_
 private:
   Screen_() = default;
   int findPosition(uint8_t count);
-  void rotate();
   uint8_t brightness = 255;
   uint8_t renderBuffer_[ROWS * COLS];
   uint8_t rotatedRenderBuffer_[ROWS * COLS];
@@ -44,6 +43,7 @@ public:
 
   bool isCacheEmpty();
   int currentRotation;
+  void rotate();
 
   uint8_t getCurrentBrightness() const;
   void setBrightness(uint8_t brightness);

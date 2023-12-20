@@ -33,6 +33,8 @@ private:
       392, 395, 230, 350};
 
 public:
+  String location;
+  void setLocation(String location);
   void update();
   void setup() override;
   void loop() override;
